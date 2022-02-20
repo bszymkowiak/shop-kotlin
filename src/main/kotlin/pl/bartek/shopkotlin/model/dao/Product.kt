@@ -6,14 +6,12 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-data class User(
+data class Product(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long,
-    var firstName:String,
-    var lastName:String,
-    var login:String,
-    var password:String,
-    var email:String
+    var name: String,
+    var price: Double,
+    var quantity: Long
 )
