@@ -1,5 +1,7 @@
 package pl.bartek.shopkotlin.service
 
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
 import pl.bartek.shopkotlin.model.dao.User
 import pl.bartek.shopkotlin.repository.UserRepository
@@ -20,9 +22,9 @@ class UserService(val userRepository: UserRepository) {
         userRepository.delete(userRepository.getById(id))
     }
 
-//    fun getPage(pageable: PageRequest): Page<User> {
-//        return userRepository.findAll(pageable)
-//    }
+    fun getPage(pageable: PageRequest): Page<User> {
+        return userRepository.findAll(pageable)
+    }
 
     @Transactional
     fun updateUser(id: Long, user: User): User {
