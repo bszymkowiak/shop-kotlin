@@ -5,18 +5,14 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Null
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-data class UserDto(
+data class ProductDto(
 
     @Null
-    var id: Long,
+    val id: Long,
     @NotBlank
-    var firstName:String,
+    val name: String,
     @NotBlank
-    var lastName:String,
+    val price: Double,
     @NotBlank
-    var login:String,
-    @NotBlank
-    var password:String,
-    @NotBlank
-    var email:String
+    val quantity: Long
 )
