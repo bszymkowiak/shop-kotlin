@@ -19,7 +19,7 @@ class ProductService(val productRepository: ProductRepository) {
     }
 
     fun deleteById(id: Long) {
-        productRepository.deleteById(id)
+        productRepository.deleteById(1)
     }
 
     fun getPage(pageable: PageRequest): Page<Product> {
@@ -28,10 +28,9 @@ class ProductService(val productRepository: ProductRepository) {
 
     @Transactional
     fun updateProduct(id: Long, product: Product): Product {
-        var productDb = findById(id)
-
-        productDb.name = product.name
+        val productDb = productRepository.getById(id)
         productDb.price = product.price
+        productDb.name = product.name
         productDb.quantity = product.quantity
 
         return productDb
