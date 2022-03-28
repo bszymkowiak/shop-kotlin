@@ -7,13 +7,14 @@ import pl.bartek.shopkotlin.mapper.UserMapper
 import pl.bartek.shopkotlin.model.dao.User
 import pl.bartek.shopkotlin.model.dto.UserDto
 import pl.bartek.shopkotlin.service.UserService
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("api/users")
 class UserController(val userService: UserService, val userMapper: UserMapper) {
 
     @PostMapping
-    fun saveUser(@RequestBody userDto: UserDto): UserDto {
+    fun saveUser(@Valid @RequestBody userDto: UserDto): UserDto {
         return userMapper.mapDaoToDto(userService.save(userMapper.mapDtoToDao(userDto)))
     }
 
@@ -34,7 +35,7 @@ class UserController(val userService: UserService, val userMapper: UserMapper) {
     }
 
     @PutMapping("/{id}")
-    fun updateUser(@RequestBody userDto: UserDto, @PathVariable id: Long): UserDto {
+    fun updateUser(@Valid @RequestBody userDto: UserDto, @PathVariable id: Long): UserDto {
         return userMapper.mapDaoToDto(userService.updateUser(id, userMapper.mapDtoToDao(userDto)))
     }
 
