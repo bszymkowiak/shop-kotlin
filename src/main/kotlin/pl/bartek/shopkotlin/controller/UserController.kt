@@ -2,18 +2,21 @@ package pl.bartek.shopkotlin.controller
 
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 import pl.bartek.shopkotlin.mapper.UserMapper
-import pl.bartek.shopkotlin.model.dao.User
 import pl.bartek.shopkotlin.model.dto.UserDto
 import pl.bartek.shopkotlin.service.UserService
+import pl.bartek.shopkotlin.validator.groups.Create
 import javax.validation.Valid
 
 @RestController
 @RequestMapping("api/users")
+@Validated
 class UserController(val userService: UserService, val userMapper: UserMapper) {
 
     @PostMapping
+    @Validated(Create::class)
     fun saveUser(@Valid @RequestBody userDto: UserDto): UserDto {
         return userMapper.mapDaoToDto(userService.save(userMapper.mapDtoToDao(userDto)))
     }
