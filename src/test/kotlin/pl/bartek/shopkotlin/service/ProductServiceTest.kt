@@ -15,7 +15,7 @@ import pl.bartek.shopkotlin.repository.ProductRepository
 class ProductServiceTest {
 
     @MockK
-    lateinit var productRepository: ProductRepository
+    lateinit var productRepository: ProductRepository //memomy implementacje. w hashmapie
     lateinit var productService: ProductService
 
     @BeforeEach
