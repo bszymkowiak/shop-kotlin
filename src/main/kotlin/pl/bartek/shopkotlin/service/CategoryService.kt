@@ -27,8 +27,8 @@ class CategoryService(val categoryRepository: CategoryRepository) {
     }
 
     @Transactional
-    fun updateCategory(category: Category): Category {
-        val categoryDb = categoryRepository.getById(category.id)
+    fun updateCategory(id: Long, category: Category): Category {
+        val categoryDb = categoryRepository.getById(id)
         categoryDb.name = category.name
 
         return categoryDb
