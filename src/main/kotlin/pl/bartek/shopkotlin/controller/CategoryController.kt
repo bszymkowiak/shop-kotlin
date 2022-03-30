@@ -12,7 +12,7 @@ import pl.bartek.shopkotlin.service.CategoryService
 @RequestMapping("/api/categories")
 class CategoryController(val categoryMapper: CategoryMapper, val categoryService: CategoryService) {
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     fun findById(@PathVariable id: Long): CategoryDto {
         return categoryMapper.mapDaoToDto(categoryService.findById(id))
     }
@@ -22,7 +22,7 @@ class CategoryController(val categoryMapper: CategoryMapper, val categoryService
         categoryService.save(categoryMapper.mapDtoToDao(categoryDto))
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     fun deleteById(@PathVariable id: Long) {
         categoryService.deleteById(id)
     }
@@ -32,7 +32,7 @@ class CategoryController(val categoryMapper: CategoryMapper, val categoryService
         return categoryService.getPage(PageRequest.of(page, size)).map(categoryMapper::mapDaoToDto)
     }
 
-    @PutMapping("{/id}")
+    @PutMapping("/{id}")
     fun updateCategory(@RequestBody categoryDto: CategoryDto, @PathVariable id: Long): CategoryDto {
         return categoryMapper.mapDaoToDto(categoryService.updateCategory(id, categoryMapper.mapDtoToDao(categoryDto)))
     }
