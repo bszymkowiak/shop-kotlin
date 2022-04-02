@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import org.hibernate.validator.constraints.Length
 import pl.bartek.shopkotlin.validator.PasswordValid
 import pl.bartek.shopkotlin.validator.groups.Create
+import javax.persistence.Column
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Null
@@ -14,18 +15,18 @@ data class UserDto(
 
     @Null
     var id: Long,
-    @NotBlank
+    @field:NotBlank(message = "firstName can't be null")
     var firstName: String,
-    @NotBlank
+    @field:NotBlank(message = "lastName can't be null")
     var lastName: String,
-    @NotBlank
+    @field: NotBlank
     var login: String,
-    @NotBlank
-    @Length(min = 6)
+    @field:NotBlank(groups = arrayOf(Create::class))
+    @Length(min = 6, groups = arrayOf(Create::class))
     var password: String,
-    @NotBlank
+    @field:NotBlank(groups = arrayOf(Create::class))
     var confirmedPassword: String,
-    @NotBlank
-    @Email
+    @field:NotBlank
+    @field:Email
     var email:String
 )
