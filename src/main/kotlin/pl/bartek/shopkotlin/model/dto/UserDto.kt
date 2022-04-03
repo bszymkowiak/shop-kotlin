@@ -25,7 +25,7 @@ data class UserDto(
     @Length(min = 6, groups = arrayOf(Create::class))
     var password: String,
     @field:NotBlank(groups = arrayOf(Create::class))
-    var confirmedPassword: String,
+    var confirmedPassword: String?,
     @field:NotBlank
     @field:Email
     var email:String,

@@ -14,7 +14,7 @@ class UserMapperImpl : UserMapper {
             user.lastName,
             user.login,
             user.password,
-            user.confirmedPassword,
+            null,
             user.email,
             null,
             null
@@ -28,7 +28,6 @@ class UserMapperImpl : UserMapper {
             userDto.lastName,
             userDto.login,
             userDto.password,
-            userDto.confirmedPassword,
             userDto.email
         )
     }

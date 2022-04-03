@@ -1,5 +1,6 @@
 package pl.bartek.shopkotlin.controller
 
+import lombok.RequiredArgsConstructor
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.history.Revision
@@ -14,6 +15,7 @@ import pl.bartek.shopkotlin.repository.UserRepository
 
 @RestController
 @RequestMapping("/api/histories")
+@RequiredArgsConstructor
 class HistoryController(
     val userRepository: UserRepository,
     val productRepository: ProductRepository,

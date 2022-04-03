@@ -1,5 +1,6 @@
 package pl.bartek.shopkotlin.controller
 
+import lombok.RequiredArgsConstructor
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.validation.annotation.Validated
@@ -13,6 +14,7 @@ import javax.validation.Valid
 @RestController
 @RequestMapping("api/users")
 @Validated
+@RequiredArgsConstructor
 class UserController(val userService: UserService, val userMapper: UserMapperImpl) {
 
     @PostMapping

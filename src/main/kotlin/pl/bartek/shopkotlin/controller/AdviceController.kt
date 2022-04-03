@@ -1,5 +1,7 @@
 package pl.bartek.shopkotlin.controller
 
+import lombok.RequiredArgsConstructor
+import lombok.extern.slf4j.Slf4j
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.converter.HttpMessageNotReadableException
@@ -16,6 +18,7 @@ import javax.persistence.EntityNotFoundException
 import javax.validation.ConstraintViolationException
 
 @RestControllerAdvice
+@RequiredArgsConstructor
 class AdviceController() {
 
     val logger = LoggerFactory.getLogger(javaClass)

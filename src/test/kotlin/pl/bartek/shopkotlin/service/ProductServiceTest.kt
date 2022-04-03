@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageRequest
+import pl.bartek.shopkotlin.model.dao.Category
 import pl.bartek.shopkotlin.model.dao.Product
 import pl.bartek.shopkotlin.repository.ProductRepository
 
@@ -56,5 +59,16 @@ class ProductServiceTest {
         every { productRepository.getById(1)} returns productDb
 
         Assertions.assertEquals(productService.findById(1), Product(1, "test", 200.0, 5, null, null, null, null))
+    }
+
+    @Test
+    fun `getPage returns Page of Products`() {
+
+        val result: Page<Product> = Page.empty()
+        val temp = PageRequest.of(0, 5)
+
+        every { productRepository.findAll(temp)} returns result
+
+        Assertions.assertEquals(Page.empty<Product>(), result)
     }
 }

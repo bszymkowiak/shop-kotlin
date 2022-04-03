@@ -1,5 +1,6 @@
 package pl.bartek.shopkotlin.controller
 
+import lombok.RequiredArgsConstructor
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.web.bind.annotation.*
@@ -9,6 +10,7 @@ import pl.bartek.shopkotlin.service.ProductService
 
 @RestController
 @RequestMapping("/api/products")
+@RequiredArgsConstructor
 class ProductController(val productMapper: ProductMapperImpl, val productService: ProductService) {
 
     @GetMapping("/{id}")

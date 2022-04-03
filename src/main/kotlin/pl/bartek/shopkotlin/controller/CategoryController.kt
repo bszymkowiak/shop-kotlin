@@ -1,5 +1,6 @@
 package pl.bartek.shopkotlin.controller
 
+import lombok.RequiredArgsConstructor
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.web.bind.annotation.*
@@ -10,6 +11,7 @@ import pl.bartek.shopkotlin.service.CategoryService
 
 @RestController
 @RequestMapping("/api/categories")
+@RequiredArgsConstructor
 class CategoryController(val categoryMapper: CategoryMapperImpl, val categoryService: CategoryService) {
 
     @GetMapping("/{id}")
