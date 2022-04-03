@@ -4,12 +4,13 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.web.bind.annotation.*
 import pl.bartek.shopkotlin.mapper.ProductMapper
+import pl.bartek.shopkotlin.mapper.ProductMapperImpl
 import pl.bartek.shopkotlin.model.dto.ProductDto
 import pl.bartek.shopkotlin.service.ProductService
 
 @RestController
 @RequestMapping("/api/products")
-class ProductController(val productMapper: ProductMapper, val productService: ProductService) {
+class ProductController(val productMapper: ProductMapperImpl, val productService: ProductService) {
 
     @GetMapping("/{id}")
     fun findById(@PathVariable id: Long): ProductDto {

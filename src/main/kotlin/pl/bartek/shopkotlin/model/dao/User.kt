@@ -35,5 +35,38 @@ data class User(
     @CreatedBy
     var createdBy: String?,
     @LastModifiedBy
-    var lastModifiedBy: String?
-)
+    var lastModifiedBy: String?,
+
+    ) {
+    constructor(
+        id: Long,
+        firstName: String,
+        lastName: String,
+        login: String,
+        password: String,
+        confirmedPassword: String,
+        email: String
+    ) : this(
+        id,
+        firstName,
+        lastName,
+        login,
+        password,
+        confirmedPassword,
+        email,
+        null,
+        null,
+        null,
+        null
+    ) {
+        this.id = id
+        this.firstName = firstName
+        this.lastName = lastName
+        this.login = login
+        this.password = password
+        this.confirmedPassword = confirmedPassword
+        this.email = email
+    }
+    //czy tak możemy tworzyć konstruktory?
+
+}

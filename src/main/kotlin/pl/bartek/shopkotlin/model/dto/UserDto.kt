@@ -2,9 +2,9 @@ package pl.bartek.shopkotlin.model.dto
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import org.hibernate.validator.constraints.Length
+import org.springframework.data.history.RevisionMetadata
 import pl.bartek.shopkotlin.validator.PasswordValid
 import pl.bartek.shopkotlin.validator.groups.Create
-import javax.persistence.Column
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Null
@@ -28,5 +28,7 @@ data class UserDto(
     var confirmedPassword: String,
     @field:NotBlank
     @field:Email
-    var email:String
+    var email:String,
+    var revNumber: Long?,
+    var revType: RevisionMetadata.RevisionType?
 )

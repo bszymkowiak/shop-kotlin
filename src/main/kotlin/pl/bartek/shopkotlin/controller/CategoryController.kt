@@ -4,13 +4,14 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.web.bind.annotation.*
 import pl.bartek.shopkotlin.mapper.CategoryMapper
+import pl.bartek.shopkotlin.mapper.CategoryMapperImpl
 import pl.bartek.shopkotlin.model.dao.Category
 import pl.bartek.shopkotlin.model.dto.CategoryDto
 import pl.bartek.shopkotlin.service.CategoryService
 
 @RestController
 @RequestMapping("/api/categories")
-class CategoryController(val categoryMapper: CategoryMapper, val categoryService: CategoryService) {
+class CategoryController(val categoryMapper: CategoryMapperImpl, val categoryService: CategoryService) {
 
     @GetMapping("/{id}")
     fun findById(@PathVariable id: Long): CategoryDto {

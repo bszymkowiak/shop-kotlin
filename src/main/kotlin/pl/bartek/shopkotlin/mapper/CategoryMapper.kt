@@ -4,7 +4,6 @@ import org.mapstruct.Mapper
 import pl.bartek.shopkotlin.model.dao.Category
 import pl.bartek.shopkotlin.model.dto.CategoryDto
 
-@Mapper(componentModel = "spring")
 interface CategoryMapper {
 
     fun mapDaoToDto(category: Category): CategoryDto
