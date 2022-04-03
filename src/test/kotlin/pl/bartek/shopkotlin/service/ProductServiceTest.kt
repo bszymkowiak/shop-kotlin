@@ -15,7 +15,7 @@ import pl.bartek.shopkotlin.repository.ProductRepository
 class ProductServiceTest {
 
     @MockK
-    lateinit var productRepository: ProductRepository //memomy implementacje. w hashmapie
+    lateinit var productRepository: ProductRepository //memory implementacje. w hashmapie
     lateinit var productService: ProductService
 
     @BeforeEach
@@ -26,7 +26,7 @@ class ProductServiceTest {
     @Test
     fun shouldSaveProduct() {
 
-        val productDb = Product(2, "test", 15.0, 2)
+        val productDb = Product(2, "test", 15.0, 2, null, null, null, null)
 
         every { productRepository.save(any()) } returns productDb
 
@@ -39,22 +39,22 @@ class ProductServiceTest {
     @Test
     fun shouldUpdateProduct() {
 
-        val productDb = Product(1, "test", 200.0, 5)
+        val productDb = Product(1, "test", 200.0, 5, null, null, null, null)
 
         every { productRepository.getById(1) } returns productDb
 
-        val result = productService.updateProduct(1, Product(1, "updatedProduct", 250.0, 10))
+        val result = productService.updateProduct(1, Product(1, "updatedProduct", 250.0, 10, null, null, null, null))
 
-        Assertions.assertEquals(result, Product(1, "updatedProduct", 250.0, 10))
+        Assertions.assertEquals(result, Product(1, "updatedProduct", 250.0, 10,null, null, null, null))
     }
 
     @Test
     fun `findById should returns Product`() {
 
-        val productDb = Product(1, "test", 200.0, 5)
+        val productDb = Product(1, "test", 200.0, 5, null, null, null, null)
 
         every { productRepository.getById(1)} returns productDb
 
-        Assertions.assertEquals(productService.findById(1), Product(1, "test", 200.0, 5))
+        Assertions.assertEquals(productService.findById(1), Product(1, "test", 200.0, 5, null, null, null, null))
     }
 }

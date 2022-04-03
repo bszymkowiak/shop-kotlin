@@ -3,9 +3,8 @@ package pl.bartek.shopkotlin.controller
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.web.bind.annotation.*
-import pl.bartek.shopkotlin.mapper.CategoryMapper
-import pl.bartek.shopkotlin.mapper.CategoryMapperImpl
-import pl.bartek.shopkotlin.model.dao.Category
+import pl.bartek.shopkotlin.mapper.impl.CategoryMapperImpl
+
 import pl.bartek.shopkotlin.model.dto.CategoryDto
 import pl.bartek.shopkotlin.service.CategoryService
 

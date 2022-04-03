@@ -4,7 +4,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
-import pl.bartek.shopkotlin.mapper.UserMapperImpl
+import pl.bartek.shopkotlin.mapper.impl.UserMapperImpl
 import pl.bartek.shopkotlin.model.dto.UserDto
 import pl.bartek.shopkotlin.service.UserService
 import pl.bartek.shopkotlin.validator.groups.Create

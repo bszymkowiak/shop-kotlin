@@ -3,8 +3,7 @@ package pl.bartek.shopkotlin.controller
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.web.bind.annotation.*
-import pl.bartek.shopkotlin.mapper.ProductMapper
-import pl.bartek.shopkotlin.mapper.ProductMapperImpl
+import pl.bartek.shopkotlin.mapper.impl.ProductMapperImpl
 import pl.bartek.shopkotlin.model.dto.ProductDto
 import pl.bartek.shopkotlin.service.ProductService
 
