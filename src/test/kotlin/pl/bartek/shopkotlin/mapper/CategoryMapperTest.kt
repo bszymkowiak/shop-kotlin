@@ -1,4 +1,4 @@
-package mapper
+package pl.bartek.shopkotlin.mapper
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach

@@ -8,6 +8,7 @@ import pl.bartek.shopkotlin.model.dto.UserDto
 
 @Component
 class HistoryMapperImpl : HistoryMapper {
+
     override fun mapRevisionToDto(revision: Revision<Long, User>): UserDto {
         return UserDto(
             revision.entity.id,
